@@ -1,0 +1,78 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat", Calibri;
+}
+
+h1{
+  margin-bottom: 10px;
+}
+
+a{
+  color: #6dabe4;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+body{
+  background-image: url('image.jpg');
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+p{
+  font-size: small;
+  text-align: center;
+  padding: 0;
+}
+
+.box{
+  width: 300px;
+  padding: 40px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -215px;
+  margin-left: -217.7px;
+}
+
+#userinfo{
+  display: grid;
+}
+
+.box input[type="text"], .box input[type="password"]{
+  border: 0;
+  padding: 14px 10px;
+  padding-bottom: 5px;
+  outline: none;
+  width: 200px;
+  margin-bottom: 5px;
+  background: none;
+}
+
+.id:focus, .email:focus, .pw:focus{
+  border-color: #6dabe4;
+}
+
+.id, .email, .pw{
+  border-bottom: 1px solid gray;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.box input[type="submit"]{
+  margin-top: 15px;
+  padding: 13px 30px;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  background-color: #6dabe4;
+  border: none;
+  margin-bottom: 30px;
+}

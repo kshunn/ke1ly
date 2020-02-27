@@ -1,0 +1,81 @@
+*{
+  font-family: "montserrat", Calibri;
+}
+
+a{
+  color: #6dabe4;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+ul{
+  list-style-type: none;
+  font-size: small;
+  text-align: center;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  height: 100%;
+}
+
+.image{
+  height: 100vh;
+  background-size: cover;
+  background-image: url('image.jpg');
+  background-repeat: no-repeat;
+}
+
+.image img{
+  width: 100%;
+  min-height: 100%;
+  background-size: cover;
+}
+
+.box{
+  width: 240px;
+  padding: 40px;
+  outline: none;
+}
+
+#idpw{
+  display: grid;
+}
+
+.box input[type="text"], .box input[type="password"]{
+  border: 0;
+  padding: 14px 10px;
+  padding-bottom: 5px;
+  outline: none;
+  width: 200px;
+  margin-bottom: 5px;
+}
+
+.id:focus, .pw:focus{
+  border-color: #6dabe4;
+}
+
+.id, .pw{
+  border-bottom: 1px solid gray;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.box input[type="submit"]{
+  margin-top: 15px;
+  padding: 13px 30px;
+  border-radius: 5px;
+  outline: none;
+  color: white;
+  background-color: #6dabe4;
+  border: none;
+  margin-bottom: 200px;
+  cursor: pointer;
+}

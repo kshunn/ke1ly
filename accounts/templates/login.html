@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+      {% load static %}
+    <link rel="stylesheet" href="{% static "accounts/login_style.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+  </head>
+  <body>
+    <div class="image"></div>
+    <form class="box" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+      <h1>Log In</h1>
+      <div id="idpw">
+        <span class="id"><i class="fas fa-user fa-sm"></i><input name="id" type="text" placeholder="Username"></span>
+        <span class="pw"><i class="fas fa-lock fa-sm"></i><input name="pw" type="password" placeholder="Password"></span>
+      </div>
+      <input type="submit" value="Log in">
+      <ul>
+        <li> <a href="{% url 'aboutus' %}"> About us </a></li>
+        <li> Forgot <a href="forgot.html"> Username / Password? </a></li>
+        <li> Don't have an account? <a href="{% url 'signup' %}"> Sign up </a></li>
+      </ul>
+    </form>
+  </body>
+</html>
