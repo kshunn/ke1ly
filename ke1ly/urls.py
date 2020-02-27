@@ -26,4 +26,5 @@ urlpatterns = [
     path('aboutus/', accounts.views.aboutus, name='aboutus'),
     path('main/', pages.views.main, name='main'),
     path('about/', pages.views.about, name='about'),
+    path('team/', pages.views.team, name='team'),
 ]

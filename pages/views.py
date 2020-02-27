@@ -8,3 +8,7 @@ def about(request):
 
 def main(request):
     return render(request, 'main.html')
+
+
+def team(request):
+    return render(request, 'team.html')
