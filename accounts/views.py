@@ -7,10 +7,6 @@ def aboutus(request):
     return render(request, 'aboutus.html')
 
 
-def main(request):
-    return render(request, 'main.html')
-
-
 def login(request):
     if request.method == "POST":
         username = request.POST['id']
