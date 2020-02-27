@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-      {% load static %}
-    <link rel="stylesheet" href="{% static "accounts/main_style.css" %}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "pages/main_style.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   </head>
   <body>
     <header>
@@ -21,12 +21,43 @@
         </nav>
       </div>
     </header>
-    <div class="card">
-        <div class="front">
-            <img src="card.jpg" alt=""
+    <div class="gallery owl-carousel">
+        <div class="photo">
+            {% load static %}
+            <img src="{% static "pages/1.jpg" %}" alt="">
+            <div class="description">
+                <div class="category">Food</div>
+                <h2 class="title">Lorem ipsum dolor sit amet</h2>
+                <div class="date">Jan 13 2020</div>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="photo">
+            {% load static %}
+            <img src="{% static "pages/2.jpg" %}" alt="">
+            <div class="description">
+                <div class="category">Cars</div>
+                <h2 class="title">Lorem ipsum dolor sit amet</h2>
+                <div class="date">Jan 14 2020</div>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="photo">
+            {% load static %}
+            <img src="{% static "pages/3.jpg" %}" alt="">
+            <div class="description">
+                <div class="category">Codes</div>
+                <h2 class="title">Lorem ipsum dolor sit amet</h2>
+                <div class="date">Jan 15 2020</div>
+                <a href="#" class="btn">Read More</a>
+            </div>
         </div>
     </div>
     {% load static %}
-    <script src="{% static "accounts/main.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" charset="utf-8"></script>
+    <script src="{% static "pages/main.js" %}"></script>
   </body>
 </html>

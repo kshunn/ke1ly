@@ -61,9 +61,8 @@ body{
   font-weight: 500;
 }
 
-.back p{
-  font-size: 9px;
-  text-align: center;
+.back {
+  font-size: 15px;
 }
 
 .back a{
