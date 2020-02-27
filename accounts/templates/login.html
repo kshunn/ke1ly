@@ -9,8 +9,7 @@
   </head>
   <body>
     <div class="image"></div>
-    <form class="box" action="{% url 'login' %}" method="POST">
-        {% csrf_token %}
+    <form class="box" action="{% url 'login' %}" method="POST">{% csrf_token %}
       <h1>Log In</h1>
       <div id="idpw">
         <span class="id"><i class="fas fa-user fa-sm"></i><input name="id" type="text" placeholder="Username"></span>
@@ -23,5 +22,10 @@
         <li> Don't have an account? <a href="{% url 'signup' %}"> Sign up </a></li>
       </ul>
     </form>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+        {% endfor %}
+    {% endif %}
   </body>
 </html>
