@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Photo
 from django.utils import timezone
+from .forms import PhotoForm
 
 
 # Create your views here.
@@ -36,13 +37,20 @@ def add(request):
 def addphoto(request):
     if not request.user.is_authenticated:
         return render(request, 'login.html')
-    photo = Photo()
-    photo.category = request.GET['category']
-    photo.title = request.GET['title']
-    photo.body = request.GET['body']
-    photo.date = timezone.datetime.now()
-    photo.save()
-    return main(request)
+
+    if request.method == "POST":
+        form = PhotoForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.date = timezone.now()
+            post.save()
+            return main(request)
+
+    else:
+        form = PhotoForm()
+        return render(request, 'add.html', {'form': form})
 
 
 def deletephoto(request, photo_id):
@@ -58,13 +66,16 @@ def editphoto(request, photo_id):
         return render(request, 'login.html')
     photo = Photo.objects.get(id=photo_id)
     if request.method == "POST":
-        photo.category = request.POST['category']
-        photo.title = request.POST['title']
-        photo.body = request.POST['body']
-        photo.save()
-        return main(request)
+        form = PhotoForm(request.POST)
+        if form.is_valid():
+            photo.category = form.cleaned_data['category']
+            photo.title = form.cleaned_data['title']
+            photo.body = form.cleaned_data['body']
+            photo.save()
+            return main(request)
 
     else:
-        return render(request, 'edit.html')
+        form = PhotoForm(instance=photo)
+        return render(request, 'edit.html', {'form': form})
 
 
