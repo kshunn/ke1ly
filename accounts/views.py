@@ -3,12 +3,16 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
 
+from pages.views import main
+
 
 def aboutus(request):
     return render(request, 'aboutus.html')
 
 
 def login(request):
+    if request.user.is_authenticated:
+        return main(request)
     if request.method == "POST":
         username = request.POST['id']
         password = request.POST['pw']
