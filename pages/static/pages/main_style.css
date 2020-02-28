@@ -20,7 +20,7 @@
   bottom: -40px;
   background: #333333ca;
   width: 100%;
-  padding: 40px;
+  padding: 20px;
   transition: .3s linear;
 }
 
@@ -43,7 +43,7 @@
   height: 2px;
   background: #e77f67;
   left: 0;
-  top: 13px;
+  top: 10px;
 }
 
 .category::after{
@@ -53,7 +53,7 @@
   height: 2px;
   background: #e77f67;
   right: 0;
-  top: 13px;
+  top: 10px;
 }
 
 .title{
@@ -89,4 +89,16 @@
 
 .owl-stage{
   display: flex !important;
+}
+
+@media screen and (max-width: 700px){
+    .category, .date{
+        font-size: 14px;
+    }
+    .title{
+        font-size: 18px;
+    }
+    .category::before, .category::after{
+        top: 8px;
+    }
 }
