@@ -48,6 +48,8 @@
                 <div class="category">{{photo.category}}</div>
                 <h2 class="title">{{photo.title}}</h2>
                 <div class="date">{{photo.date}}</div>
+                <a href="#" class="btn">Read More</a>
+                <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a>
                 <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>
             </div>
         </div>

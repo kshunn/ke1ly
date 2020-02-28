@@ -30,4 +30,5 @@ urlpatterns = [
     path('add/', pages.views.add, name='add'),
     path('addphoto/', pages.views.addphoto, name='addphoto'),
     path('deletephoto/<int:photo_id>/', pages.views.deletephoto, name='deletephoto'),
+    path('editphoto/<int:photo_id>/', pages.views.editphoto, name='editphoto'),
 ]

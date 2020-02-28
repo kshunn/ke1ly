@@ -42,7 +42,7 @@ def addphoto(request):
     photo.body = request.GET['body']
     photo.date = timezone.datetime.now()
     photo.save()
-    return render(request, 'main.html')
+    return main(request)
 
 
 def deletephoto(request, photo_id):
@@ -50,4 +50,21 @@ def deletephoto(request, photo_id):
         return render(request, 'login.html')
     photo = Photo.objects.get(id=photo_id)
     photo.delete()
-    return render(request, 'main.html')
+    return main(request)
+
+
+def editphoto(request, photo_id):
+    if not request.user.is_authenticated:
+        return render(request, 'login.html')
+    photo = Photo.objects.get(id=photo_id)
+    if request.method == "POST":
+        photo.category = request.POST['category']
+        photo.title = request.POST['title']
+        photo.body = request.POST['body']
+        photo.save()
+        return main(request)
+
+    else:
+        return render(request, 'edit.html')
+
+
