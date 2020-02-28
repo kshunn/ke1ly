@@ -27,4 +27,7 @@ urlpatterns = [
     path('main/', pages.views.main, name='main'),
     path('about/', pages.views.about, name='about'),
     path('team/', pages.views.team, name='team'),
+    path('add/', pages.views.add, name='add'),
+    path('addphoto/', pages.views.addphoto, name='addphoto'),
+    path('deletephoto/<int:photo_id>/', pages.views.deletephoto, name='deletephoto'),
 ]

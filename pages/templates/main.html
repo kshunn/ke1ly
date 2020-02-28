@@ -40,6 +40,18 @@
                 <a href="#" class="btn">Read More</a>
             </div>
         </div>
+        {% for photo in photos.all %}
+        <div class="photo">
+            {% load static %}
+            <img src="{% static "pages/4.jpg" %}" alt="">
+            <div class="description">
+                <div class="category">{{photo.category}}</div>
+                <h2 class="title">{{photo.title}}</h2>
+                <div class="date">{{photo.date}}</div>
+                <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}
 
