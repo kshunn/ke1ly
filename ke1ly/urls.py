@@ -35,6 +35,7 @@ urlpatterns = [
     path('editphoto/<int:photo_id>/', pages.views.editphoto, name='editphoto'),
     path('settings/', pages.views.settings, name='settings'),
     path('changepw/', pages.views.changepw, name='changepw'),
+    path('withdrawal/', pages.views.withdrawal, name='withdrawal'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

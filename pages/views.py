@@ -101,3 +101,19 @@ def changepw(request):
             return render(request, 'changepw.html')
 
     return render(request, 'changepw.html')
+
+
+def withdrawal(request):
+    if not request.user.is_authenticated:
+        return render(request, 'login.html')
+    if request.method == "POST":
+        pw1 = request.POST.get("pw1")
+        if check_password(pw1, request.user.password):
+            request.user.delete()
+            messages.success(request, 'Withdrawal successful')
+            return render(request, 'login.html')
+        else:
+            messages.error(request, 'Incorrect password')
+            return render(request, 'withdrawal.html')
+
+    return render(request, 'withdrawal.html')
