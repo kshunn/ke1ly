@@ -7,54 +7,29 @@
 {% endblock %}
 
 {% block content %}
-    <div class="gallery owl-carousel">
-        <div class="photo">
-            {% load static %}
-            <img src="{% static "pages/1.jpg" %}" alt="">
-            <div class="description">
-                <div class="category">Food</div>
-                <h2 class="title">Lorem ipsum dolor sit amet</h2>
-                <div class="date">Jan 13 2020</div>
-                <a href="#" class="btn">Read More</a>
+    {% if photos.exists %}
+        <div class="gallery owl-carousel">
+            {% for photo in photos.all %}
+            <div class="photo">
+                {% load static %}
+                <img src="{% static "pages/1.jpg" %}" alt="">
+                <div class="description">
+                    <div class="category">{{photo.category}}</div>
+                    <h2 class="title">{{photo.title}}</h2>
+                    <div class="date">{{photo.date}}</div>
+                    <a href="#" class="btn">Read More</a>
+                    <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a>
+                    <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>
+                </div>
             </div>
+            {% endfor %}
         </div>
-
-        <div class="photo">
-            {% load static %}
-            <img src="{% static "pages/2.jpg" %}" alt="">
-            <div class="description">
-                <div class="category">Cars</div>
-                <h2 class="title">Lorem ipsum dolor sit amet</h2>
-                <div class="date">Jan 14 2020</div>
-                <a href="#" class="btn">Read More</a>
-            </div>
+    {% else %}
+        <div class="nophoto">
+            <h4>There are no photos</h4>
+            <a href="{% url 'addphoto' %}">Share your photo</a>
         </div>
-
-        <div class="photo">
-            {% load static %}
-            <img src="{% static "pages/3.jpg" %}" alt="">
-            <div class="description">
-                <div class="category">Codes</div>
-                <h2 class="title">Lorem ipsum dolor sit amet</h2>
-                <div class="date">Jan 15 2020</div>
-                <a href="#" class="btn">Read More</a>
-            </div>
-        </div>
-        {% for photo in photos.all %}
-        <div class="photo">
-            {% load static %}
-            <img src="{% static "pages/4.jpg" %}" alt="">
-            <div class="description">
-                <div class="category">{{photo.category}}</div>
-                <h2 class="title">{{photo.title}}</h2>
-                <div class="date">{{photo.date}}</div>
-                <a href="#" class="btn">Read More</a>
-                <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a>
-                <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% endif %}
 {% endblock %}
 
 {% block script %}

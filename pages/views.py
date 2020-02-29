@@ -39,7 +39,7 @@ def addphoto(request):
         return render(request, 'login.html')
 
     if request.method == "POST":
-        form = PhotoForm(request.POST)
+        form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -66,7 +66,7 @@ def editphoto(request, photo_id):
         return render(request, 'login.html')
     photo = Photo.objects.get(id=photo_id)
     if request.method == "POST":
-        form = PhotoForm(request.POST)
+        form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             photo.category = form.cleaned_data['category']
             photo.title = form.cleaned_data['title']
