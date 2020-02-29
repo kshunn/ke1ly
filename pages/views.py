@@ -71,3 +71,7 @@ def editphoto(request, photo_id):
         return render(request, 'edit.html', {'form': form})
 
 
+def settings(request):
+    if not request.user.is_authenticated:
+        return render(request, 'login.html')
+    return render(request, 'settings.html')
