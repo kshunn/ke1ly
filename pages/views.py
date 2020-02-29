@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Photo
 from django.utils import timezone
 from .forms import PhotoForm
+from .forms import EditForm
 
 
 # Create your views here.
@@ -59,16 +60,14 @@ def editphoto(request, photo_id):
         return render(request, 'login.html')
     photo = Photo.objects.get(id=photo_id)
     if request.method == "POST":
-        form = PhotoForm(request.POST, request.FILES)
+        form = EditForm(request.POST)
         if form.is_valid():
-            photo.category = form.cleaned_data['category']
             photo.title = form.cleaned_data['title']
-            photo.body = form.cleaned_data['body']
             photo.save()
             return main(request)
 
     else:
-        form = PhotoForm(instance=photo)
+        form = EditForm(instance=photo)
         return render(request, 'edit.html', {'form': form})
 
 

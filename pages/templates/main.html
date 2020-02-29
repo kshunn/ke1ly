@@ -17,8 +17,9 @@
                 {% for photo in photos.all %}
                 <div class="photo">
                     {% load static %}
-                    <img src="{% static "pages/3.png" %}" alt="">
+                    <img src="{{ photo.image.url }}" alt="">
                     <div class="middle">
+                        <h3>{{ photo.title }}</h3><br><br>
                         <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a><br><br>
                         <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>
                     </div>
