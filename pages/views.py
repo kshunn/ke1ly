@@ -42,7 +42,7 @@ def addphoto(request):
             post.user = request.user
             post.date = timezone.now()
             post.save()
-            return main(request)
+            return render(request, 'main.html')
 
     else:
         form = PhotoForm()
@@ -54,7 +54,7 @@ def deletephoto(request, photo_id):
         return render(request, 'login.html')
     photo = Photo.objects.get(id=photo_id)
     photo.delete()
-    return main(request)
+    return render(request, 'main.html')
 
 
 def editphoto(request, photo_id):
@@ -66,7 +66,7 @@ def editphoto(request, photo_id):
         if form.is_valid():
             photo.title = form.cleaned_data['title']
             photo.save()
-            return main(request)
+            return render(request, 'main.html')
 
     else:
         form = EditForm(instance=photo)

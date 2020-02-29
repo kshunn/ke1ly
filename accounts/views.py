@@ -12,7 +12,7 @@ def aboutus(request):
 
 def login(request):
     if request.user.is_authenticated:
-        return main(request)
+        return redirect('main')
     if request.method == "POST":
         username = request.POST['id']
         password = request.POST['pw']
