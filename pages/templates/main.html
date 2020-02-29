@@ -3,37 +3,80 @@
 {% block style %}
     {% load static %}
     <link rel="stylesheet" href="{% static "pages/main_style.css" %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
 
 {% block content %}
-    {% if photos.exists %}
-        <div class="gallery owl-carousel">
-            {% for photo in photos.all %}
-            <div class="photo">
-                {% load static %}
-                <img src="{% static "pages/1.jpg" %}" alt="">
-                <div class="description">
-                    <div class="category">{{photo.category}}</div>
-                    <h2 class="title">{{photo.title}}</h2>
-                    <div class="date">{{photo.date}}</div>
-                    <a href="#" class="btn">Read More</a>
-                    <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a>
-                    <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>
-                </div>
+    <div class="gallery-section">
+        <div class="width">
+            <h1>My Gallery</h1>
+            <div class="border"></div>
+            {% if photos.exists %}
+            <div class="gallery">
+                <a href="#" class="photo">
+                    {% load static %}
+                    <img src="{% static "pages/1.png" %}" alt="">
+                </a>
+                <a href="#" class="photo">
+                    {% load static %}
+                    <img src="{% static "pages/2.png" %}" alt="">
+                </a>
+                <a href="#" class="photo">
+                    {% load static %}
+                    <img src="{% static "pages/3.png" %}" alt="">
+                </a>
+                <a href="#" class="photo">
+                    {% load static %}
+                    <img src="{% static "pages/4.png" %}" alt="">
+                </a>
+                <a href="#" class="photo">
+                    {% load static %}
+                    <img src="{% static "pages/5.png" %}" alt="">
+                </a>
+                <a href="#" class="photo">
+                    {% load static %}
+                    <img src="{% static "pages/6.png" %}" alt="">
+                </a>
+                <a href="#" class="photo">
+                    {% load static %}
+                    <img src="{% static "pages/7.png" %}" alt="">
+                </a>
+                <a href="#" class="photo">
+                    {% load static %}
+                    <img src="{% static "pages/8.png" %}" alt="">
+                </a>
+
+{#                {% for photo in photos.all %}#}
+{#                <div class="photo">#}
+{#                    {% load static %}#}
+{#                    <a href="#">#}
+{#                        <img src="{% static "pages/2.jpg" %}" alt="">#}
+{#                    </a>#}
+{#                    <div class="description">#}
+{#                        <div class="category">{{photo.category}}</div>#}
+{#                        <h2 class="title">{{photo.title}}</h2>#}
+{#                        <div class="date">{{photo.date}}</div>#}
+{#                        <div class="body">{{photo.body}}</div>#}
+{#                        <a href="#" class="btn readmore">Read More</a>#}
+{#                        <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a>#}
+{#                        <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#                {% endfor %}#}
             </div>
-            {% endfor %}
+            {% else %}
+                <div class="nophoto">
+                    <h4>There are no photos</h4>
+                    <a href="{% url 'addphoto' %}">Share your photo</a>
+                </div>
+            {% endif %}
         </div>
-    {% else %}
-        <div class="nophoto">
-            <h4>There are no photos</h4>
-            <a href="{% url 'addphoto' %}">Share your photo</a>
-        </div>
-    {% endif %}
+    </div>
 {% endblock %}
 
 {% block script %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" charset="utf-8"></script>
     {% load static %}
     <script src="{% static "pages/main.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 {% endblock %}
