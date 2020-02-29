@@ -41,7 +41,7 @@ body{
 
 .box{
   width: 240px;
-  padding: 40px;
+  padding: 40px 40px 0px;
   outline: none;
 }
 

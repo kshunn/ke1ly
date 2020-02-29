@@ -11,10 +11,11 @@ body{
 .services h1{
   display: inline-block;
   text-transform: uppercase;
-  border-bottom: 4px solid #6dabe4;
+  border-bottom: 4px solid #2f3640;
   font-size: 20px;
   padding-bottom: 10px;
   margin-top: 40px;
+  color: #2f3640;
 }
 
 .cen{
@@ -39,7 +40,7 @@ body{
 }
 
 .service i{
-  color: #6dabe4;
+  color: #2f3640;
   font-size: 34px;
   margin-bottom: 30px;
 }
@@ -62,7 +63,7 @@ body{
 }
 
 .back a{
-  color: #6dabe4;
+  color: #2f3640;
   text-decoration: none;
 }
 
