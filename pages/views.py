@@ -18,7 +18,7 @@ def about(request):
 def main(request):
     if not request.user.is_authenticated:
         return render(request, 'login.html')
-    photos = Photo.objects
+    photos = Photo.objects.filter(user=request.user)
     return render(request, 'main.html', {'photos': photos})
 
 
@@ -26,12 +26,6 @@ def team(request):
     if not request.user.is_authenticated:
         return render(request, 'login.html')
     return render(request, 'team.html')
-
-
-def add(request):
-    if not request.user.is_authenticated:
-        return render(request, 'login.html')
-    return render(request, 'add.html')
 
 
 def addphoto(request):
@@ -42,8 +36,7 @@ def addphoto(request):
         form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
+            post.user = request.user
             post.date = timezone.now()
             post.save()
             return main(request)
