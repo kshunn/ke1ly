@@ -1,6 +1,6 @@
 $(".gallery").magnificPopup({
   delegate: 'a',
-  type: 'photo',
+  type: 'image',
   gallery:{
     enabled: true
   }

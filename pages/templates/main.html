@@ -14,56 +14,16 @@
             <div class="border"></div>
             {% if photos.exists %}
             <div class="gallery">
-                <a href="#" class="photo">
-                    {% load static %}
-                    <img src="{% static "pages/1.png" %}" alt="">
-                </a>
-                <a href="#" class="photo">
-                    {% load static %}
-                    <img src="{% static "pages/2.png" %}" alt="">
-                </a>
-                <a href="#" class="photo">
+                {% for photo in photos.all %}
+                <div class="photo">
                     {% load static %}
                     <img src="{% static "pages/3.png" %}" alt="">
-                </a>
-                <a href="#" class="photo">
-                    {% load static %}
-                    <img src="{% static "pages/4.png" %}" alt="">
-                </a>
-                <a href="#" class="photo">
-                    {% load static %}
-                    <img src="{% static "pages/5.png" %}" alt="">
-                </a>
-                <a href="#" class="photo">
-                    {% load static %}
-                    <img src="{% static "pages/6.png" %}" alt="">
-                </a>
-                <a href="#" class="photo">
-                    {% load static %}
-                    <img src="{% static "pages/7.png" %}" alt="">
-                </a>
-                <a href="#" class="photo">
-                    {% load static %}
-                    <img src="{% static "pages/8.png" %}" alt="">
-                </a>
-
-{#                {% for photo in photos.all %}#}
-{#                <div class="photo">#}
-{#                    {% load static %}#}
-{#                    <a href="#">#}
-{#                        <img src="{% static "pages/2.jpg" %}" alt="">#}
-{#                    </a>#}
-{#                    <div class="description">#}
-{#                        <div class="category">{{photo.category}}</div>#}
-{#                        <h2 class="title">{{photo.title}}</h2>#}
-{#                        <div class="date">{{photo.date}}</div>#}
-{#                        <div class="body">{{photo.body}}</div>#}
-{#                        <a href="#" class="btn readmore">Read More</a>#}
-{#                        <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a>#}
-{#                        <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endfor %}#}
+                    <div class="middle">
+                        <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a><br><br>
+                        <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
             {% else %}
                 <div class="nophoto">
