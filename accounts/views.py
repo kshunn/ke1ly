@@ -21,7 +21,7 @@ def login(request):
             auth.login(request, user)
             return redirect('main')
         else:
-            messages.success(request, 'Username or password is incorrect')
+            messages.error(request, 'Username or password is incorrect')
             return render(request, 'login.html')
     else:
         return render(request, 'login.html')
@@ -39,7 +39,7 @@ def signup(request):
                 username=request.POST["id"], password=request.POST["pw1"])
             messages.success(request, 'Sign up successful')
             return render(request, 'login.html')
-        messages.success(request, 'Confirm your password')
+        messages.error(request, 'Confirm your password')
         return render(request, 'signup.html')
     return render(request, 'signup.html')
 

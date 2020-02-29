@@ -34,6 +34,7 @@ urlpatterns = [
     path('deletephoto/<int:photo_id>/', pages.views.deletephoto, name='deletephoto'),
     path('editphoto/<int:photo_id>/', pages.views.editphoto, name='editphoto'),
     path('settings/', pages.views.settings, name='settings'),
+    path('changepw/', pages.views.changepw, name='changepw'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

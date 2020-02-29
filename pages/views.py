@@ -7,6 +7,8 @@ from .models import Photo
 from django.utils import timezone
 from .forms import PhotoForm
 from .forms import EditForm
+from django.contrib.auth.hashers import check_password
+from django.contrib import messages
 
 
 # Create your views here.
@@ -75,3 +77,27 @@ def settings(request):
     if not request.user.is_authenticated:
         return render(request, 'login.html')
     return render(request, 'settings.html')
+
+
+def changepw(request):
+    if not request.user.is_authenticated:
+        return render(request, 'login.html')
+    if request.method == "POST":
+        current_password = request.POST.get("opw")
+        user = request.user
+        if check_password(current_password, user.password):
+            new_password = request.POST.get("npw1")
+            password_confirm = request.POST.get("npw2")
+            if new_password == password_confirm:
+                user.set_password(new_password)
+                user.save()
+                messages.success(request, 'Password change successful')
+                return render(request, 'login.html')
+            else:
+                messages.error(request, 'Confirm your new password')
+                return render(request, 'changepw.html')
+        else:
+            messages.error(request, 'Incorrect original password')
+            return render(request, 'changepw.html')
+
+    return render(request, 'changepw.html')
