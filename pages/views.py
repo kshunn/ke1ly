@@ -53,6 +53,9 @@ def deletephoto(request, photo_id):
     if not request.user.is_authenticated:
         return render(request, 'login.html')
     photo = Photo.objects.get(id=photo_id)
+    if photo.user != request.user:
+        messages.error(request, 'You can only delete your photos')
+        return redirect('main')
     photo.delete()
     return redirect('main')
 
@@ -61,6 +64,9 @@ def editphoto(request, photo_id):
     if not request.user.is_authenticated:
         return render(request, 'login.html')
     photo = Photo.objects.get(id=photo_id)
+    if photo.user != request.user:
+        messages.error(request, 'You can only edit your photos')
+        return redirect('main')
     if request.method == "POST":
         form = EditForm(request.POST)
         if form.is_valid():
