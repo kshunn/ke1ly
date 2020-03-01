@@ -1,0 +1,33 @@
+body{
+    background-color: #f1f1f1;
+}
+
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn{
+    padding: 5px 15px;
+    border: 2px solid #2f3640;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 40px;
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+.btn a{
+    color: #2f3640;
+}
+
+.btn:hover{
+    background-color: #2f3640;
+}
+
+.btn:hover a{
+    color: #f1f1f1;
+}
