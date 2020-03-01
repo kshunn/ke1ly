@@ -63,12 +63,31 @@ body{
     text-align: center;
 }
 
+.photo .middle2{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 .photo:hover img{
     opacity: 0.3;
 }
 
 .photo:hover .middle{
     opacity: 1;
+}
+
+.middle.inactive{
+    display: none;
+}
+
+.middle2.active{
+    display: block;
 }
 
 .btn{

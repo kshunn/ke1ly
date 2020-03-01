@@ -1,7 +1,10 @@
-$(".gallery").magnificPopup({
-  delegate: 'a',
-  type: 'image',
-  gallery:{
-    enabled: true
-  }
+$(".del").click(function(){
+  $(".middle").toggleClass("inactive");
+  $(".middle2").toggleClass("active");
 });
+
+$(".no").click(function(){
+  $(".middle").toggleClass("inactive");
+  $(".middle2").toggleClass("active");
+});
+

@@ -2,14 +2,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
-
-from pages.views import main
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 def aboutus(request):
     return render(request, 'aboutus.html')
 
 
+@ensure_csrf_cookie
 def login(request):
     if request.user.is_authenticated:
         return redirect('main')

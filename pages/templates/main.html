@@ -21,7 +21,12 @@
                     <div class="middle">
                         <h3>{{ photo.title }}</h3><br><br>
                         <a href="{% url 'editphoto' photo.id %}" class="btn">Edit</a><br><br>
-                        <a href="{% url 'deletephoto' photo.id %}" class="btn">Delete</a>
+                        <p class="btn del">Delete</p>
+                    </div>
+                    <div class="middle2">
+                        <h3>Delete?</h3><br><br>
+                        <a href="{% url 'deletephoto' photo.id %}" class="btn">Yes</a><br><br>
+                        <p class="btn no">No</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -37,6 +42,6 @@
 
 {% block script %}
     {% load static %}
-    <script src="{% static "pages/main.js" %}"></script>
+    <script src="{% static "pages/main.js" %}?{% now "U" %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 {% endblock %}

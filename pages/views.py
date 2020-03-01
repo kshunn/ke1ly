@@ -42,7 +42,7 @@ def addphoto(request):
             post.user = request.user
             post.date = timezone.now()
             post.save()
-            return render(request, 'main.html')
+            return redirect('main')
 
     else:
         form = PhotoForm()
@@ -54,7 +54,7 @@ def deletephoto(request, photo_id):
         return render(request, 'login.html')
     photo = Photo.objects.get(id=photo_id)
     photo.delete()
-    return render(request, 'main.html')
+    return redirect('main')
 
 
 def editphoto(request, photo_id):
@@ -66,7 +66,7 @@ def editphoto(request, photo_id):
         if form.is_valid():
             photo.title = form.cleaned_data['title']
             photo.save()
-            return render(request, 'main.html')
+            return redirect('main')
 
     else:
         form = EditForm(instance=photo)
@@ -92,7 +92,7 @@ def changepw(request):
                 user.set_password(new_password)
                 user.save()
                 messages.success(request, 'Password change successful')
-                return render(request, 'login.html')
+                return redirect('login')
             else:
                 messages.error(request, 'Confirm your new password')
                 return render(request, 'changepw.html')
@@ -111,7 +111,7 @@ def withdrawal(request):
         if check_password(pw1, request.user.password):
             request.user.delete()
             messages.success(request, 'Withdrawal successful')
-            return render(request, 'login.html')
+            return redirect('login')
         else:
             messages.error(request, 'Incorrect password')
             return render(request, 'withdrawal.html')
