@@ -21,7 +21,9 @@ ul{
 body{
   margin: 0;
   padding: 0;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 3fr 1fr;
   grid-template-columns: 3fr 1fr;
   height: 100%;
 }
@@ -41,11 +43,12 @@ body{
 
 .box{
   width: 240px;
-  padding: 40px;
+  padding: 40px 40px 0px;
   outline: none;
 }
 
 #idpw{
+  display: -ms-grid;
   display: grid;
 }
 
@@ -79,3 +82,4 @@ body{
   margin-bottom: 200px;
   cursor: pointer;
 }
+
