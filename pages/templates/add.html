@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "pages/add_style.css" %}?{% now "U" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Upload</h3>
+            <div class="field">
+                {{ form.title }}
+            </div>
+            <div class="wrap">
+                <button class="upload">Upload image</button>
+                {{ form.image }}
+            </div>
+            <div class="btn"><input type="submit" value="Submit"></div>
+        </form>
+    </div>
+{% endblock %}

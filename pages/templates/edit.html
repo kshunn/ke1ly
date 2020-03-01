@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "pages/edit_style.css" %}?{% now "U" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>Edit</h3>
+            {{form.title}}
+            <div class="btn"><input type="submit" value="Submit"></div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "pages/changepw_style.css" %}?{% now "U" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <form method="POST" action="{% url 'changepw' %}">
+            {% csrf_token %}
+            <h3>Change Password</h3>
+            <div class="field"><input name="opw" type="password" placeholder="Original password"></div>
+            <div class="field"><input name="npw1" type="password" placeholder="New password"></div>
+            <div class="field"><input name="npw2" type="password" placeholder="Confirm your password"></div>
+            <div class="btn"><input type="submit" value="Submit"></div>
+        </form>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

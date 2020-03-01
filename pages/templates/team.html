@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "pages/team_style.css" %}?{% now "U" %}">
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+        <div class="card box">
+            <div class="front">
+                <h2>Sang Hun Kim</h2>
+                <span>SNUCSE 18'</span>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-mobile-alt"></i> +8210-4184-2396
+                    </li>
+                    <li>
+                        <i class="far fa-envelope"></i> qkshunn@gmail.com
+                    </li>
+                    <li>
+                        <i class="fab fa-instagram"></i> @k._.shun
+                    </li>
+                </ul>
+            </div>
+            <div class="back">
+                <span>Ke1ly</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    {% load static %}
+    <script href="{% static "pages/team.js" %}"></script>
+{% endblock %}

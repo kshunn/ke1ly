@@ -1,0 +1,95 @@
+body{
+    background: #f1f1f1;
+}
+
+.box{
+    text-align: center;
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    color: #2f3640;
+}
+
+.box h3{
+    text-align: center;
+    margin: 20px auto;
+    border-bottom: 3px solid #2f3640;
+    padding: 5px 0;
+    width: 150px;
+}
+
+.box .field{
+    margin-bottom: 10px;
+}
+
+.box input[type="button"]{
+    padding: 5px 15px;
+    border: 2px solid #2f3640;
+    outline: none;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.box input[type="button"]:hover{
+    color: #f1f1f1;
+    background-color: #2f3640;
+}
+
+.field input[type="password"]{
+    text-align: center;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #2f3640;
+    color: #2f3640;
+    outline: none;
+    font-weight: 600;
+    background: #f1f1f1;
+}
+
+.ask{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+.ask h3{
+    text-align: center;
+    margin: 20px auto;
+    border-bottom: 3px solid #2f3640;
+    padding: 5px 0;
+    width: 150px;
+}
+
+.ask input[type="button"], .ask input[type="submit"]{
+    padding: 5px 15px;
+    border: 2px solid #2f3640;
+    outline: none;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.ask input[type="button"]:hover, .ask input[type="submit"]:hover{
+    color: #f1f1f1;
+    background-color: #2f3640;
+}
+
+.ask.active{
+    display: block;
+}
+
+.wrap.inactive{
+    display: none;
+}
+
