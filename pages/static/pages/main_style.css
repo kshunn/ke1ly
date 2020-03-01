@@ -82,11 +82,11 @@ body{
     opacity: 1;
 }
 
-.middle.inactive{
+.photo:hover .middle.inactive{
     display: none;
 }
 
-.middle2.active{
+.photo:hover .middle2.active{
     display: block;
 }
 
