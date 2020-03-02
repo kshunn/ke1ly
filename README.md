@@ -1,5 +1,6 @@
 # ke1ly
 HTML, CSS, JavaScript, Django
+<br>- Made from pure scratch for practice
 <br>- Users can share their photos after signing up
 <br>- Optimized for Chrome
 <br>- Incompatible with IE due to flexbox/grid bugs
